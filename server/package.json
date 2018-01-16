@@ -1,0 +1,14 @@
+{
+  "name": "websocketserver",
+  "version": "1.0.0",
+  "description": "Web Socket for laboratory 2 of SOC - FER 2017/18",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joao Quintanilha",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^4.0.0"
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<htlm lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web Sockets</title>
+
+    <style>
+    div#log {
+      width: 800px;
+      height: 500px;
+      margin: 0 auto;
+      border: 4px solid black;
+      border-radius: 5px;
+    }
+
+    div#sendCtrls {
+    width: 250px;
+    margin: 30px auto;
+    }
+    </style>
+
+
+  </head>
+  <body>
+
+    <div id="log"></div>
+
+    <div id="sendCtrls">
+      <input type="text" placeholder="Your message here" id="text">
+      <button id="btn">Send</button>
+    </div>
+
+    <script>
+
+      var name = prompt("What is your name?");
+      var socket = new WebSocket("ws://localhost:5001");
+
+      socket.onopen = function() {
+        socket.send(JSON.stringify({
+          type: "name",
+          data: name
+        }));
+      }
+
+      var log = document.getElementById('log');
+
+        socket.onmessage = function(event) {
+
+          var json = JSON.parse(event.data);
+          if (json.type == "welcome") {
+            log.innerHTML += json.name + " joined the chat! <br>";
+          }else {
+            log.innerHTML += json.name + ": " + json.data + "<br>";
+          }
+
+        }
+
+        document.querySelector('button').onclick = function(){
+          var text = document.getElementById('text').value;
+          //socket.send(text);
+          socket.send(JSON.stringify({
+            type: "message",
+            data: text
+          }));
+
+          log.innerHTML += "You: " + text + "<br>";
+        };
+
+        //maked button triger on enter
+      text.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+          document.getElementById("btn").click();
+          document.getElementById('text').value = '';
+        }
+      });
+
+
+    </script>
+  </body>
+  </html>
