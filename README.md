@@ -1,5 +1,5 @@
 # Websocket-protocol chat
-Simple web application using web-socket protocol for a message system between users in a chat.
+On the scope of Service Oriented computing, I made a simple web application using web-socket protocol for a message system between users in a chat.
 
 ## Nodejs + ws
 sudo apt-get install nodejs
