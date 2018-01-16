@@ -1,12 +1,12 @@
-## Websocket-protocol chat
+# Websocket-protocol chat
 Simple web application using web-socket protocol for a message system between users in a chat.
 
-# Nodejs + ws
+## Nodejs + ws
 sudo apt-get install nodejs
 
 npm install ws
 
-# Procedure
+## Procedure
 Run nodejs in /server
 
 node index.js
