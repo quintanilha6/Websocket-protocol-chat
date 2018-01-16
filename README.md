@@ -7,7 +7,7 @@ sudo apt-get install nodejs
 npm install ws
 
 ## Procedure
-Run nodejs in /server
+Run nodejs in /server with the command node index.js
 
-node index.js
+Follow file:///C:/[pathTo]/lab2/chatapp.html on any web browser and chat.
 
